@@ -1,3 +1,10 @@
+## This app only provides the backend
+## To test it, use tools such as Postman
+## A sample user provided is:
+	username: test
+	email: test@example.com
+	password: password
+
 ## Usage
 Create a user
 endpoint:/api/v1/users
@@ -7,25 +14,30 @@ data-required:
 	email: String,
 	password: String
 
+To authenticate:
+use Basic Auth when sending request:
+	username: String,
+	password: String
+
 Get todo list:
 endpoint:/api/v1/todos
 method:GET
 
-@login_required
+@authentication_required
 Create a todo:
 endpoint:/api/v1/todos
 method: POST
 data-required:
 	name: String
 
-@login_required
+@authentication_required
 Update a todo:
 endpoint:/api/v1/todos/<id>
 method: PUT
 data-required:
 	name: String
 
-@login_required
+@authentication_required
 Delete a todo:
 endpoint:/api/v1/todos/<id>
 method: DELETE
